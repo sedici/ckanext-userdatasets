@@ -18,7 +18,7 @@ def package_delete(context, data_dict):
 def resource_delete(context, data_dict):
     user = context['auth_user_obj']
     resource = get_resource_object(context, data_dict)
-    package = resource.resource_group.package
+    package = get_package_object(context,data_dict={'id': resource.package_id})
     if user_owns_package_as_member(user, package):
         return {'success': True}
     elif user_is_member_of_package_org(user, package):
@@ -31,10 +31,11 @@ def resource_delete(context, data_dict):
 def resource_view_delete(context, data_dict):
     user = context['auth_user_obj']
     resource_view = get_resource_view_object(context, data_dict)
-    resource = get_resource_object(context, {'id': resource_view.resource_id})
-    if user_owns_package_as_member(user, resource.resource_group.package):
+    resource = get_resource_object(context, data_dict={'id': resource_view.resource_id})
+    package = get_package_object(context,data_dict={'id': resource.package_id})
+    if user_owns_package_as_member(user, package):
         return {'success': True}
-    elif user_is_member_of_package_org(user, resource.resource_group.package):
+    elif user_is_member_of_package_org(user, package):
         return {'success': False}
 
     fallback = get_default_auth('delete', 'resource_view_delete')

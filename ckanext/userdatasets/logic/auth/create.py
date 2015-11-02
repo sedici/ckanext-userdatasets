@@ -45,9 +45,10 @@ def resource_view_create(context, data_dict):
     else:
         dc = data_dict
     resource = get_resource_object(context, dc)
-    if user_owns_package_as_member(user, resource.resource_group.package):
+    package = get_package_object(context,data_dict={'id': resource.package_id})
+    if user_owns_package_as_member(user, package):
         return {'success': True}
-    elif user_is_member_of_package_org(user, resource.resource_group.package):
+    elif user_is_member_of_package_org(user, package):
         return {'success': False}
 
     fallback = get_default_auth('create', 'resource_view_create')
