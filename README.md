@@ -1,5 +1,6 @@
 ckanext-userdatasets
 ====================
+(This is a fork of https://github.com/NaturalHistoryMuseum/ckanext-userdatasets, and was merged with the PR https://github.com/NaturalHistoryMuseum/ckanext-userdatasets/pull/2 from https://github.com/hbunke/ckanext-userdatasets/tree/edawax)
 
 Overview
 --------
