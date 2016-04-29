@@ -66,7 +66,6 @@ def package_create(context, data_dict):
 
     pkg = model_save.package_dict_save(data, context)
 
-    model.setup_default_user_roles(pkg, admins)
     # Needed to let extensions know the package id
     model.Session.flush()
     data['id'] = pkg.id
