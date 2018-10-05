@@ -1,5 +1,5 @@
 from ckan.logic.auth import get_package_object, get_resource_object
-from ckan.new_authz import users_role_for_group_or_org, has_user_permission_for_some_org
+from ckan.authz import users_role_for_group_or_org, has_user_permission_for_some_org
 from ckanext.userdatasets.plugin import get_default_auth
 from ckanext.userdatasets.logic.auth.auth import user_owns_package_as_member, user_is_member_of_package_org
 

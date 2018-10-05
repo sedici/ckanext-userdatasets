@@ -1,5 +1,5 @@
 from ckan import logic
-from ckan.new_authz import users_role_for_group_or_org
+from ckan.authz import users_role_for_group_or_org
 
 def user_is_member_of_package_org(user, package):
     """Return True if the package is in an organization and the user has the member role in that organization
